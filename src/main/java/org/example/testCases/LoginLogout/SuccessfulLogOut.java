@@ -7,10 +7,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class SuccessfulLogOut implements Runnable {
-    WebDriver webDriver;
-    LogIn logIn;
-
-    private final String URL = "https://jira-auto.codecool.metastage.net/secure/Dashboard.jspa";
+    private static final String URL = "https://jira-auto.codecool.metastage.net/secure/Dashboard.jspa";
+    private final WebDriver webDriver;
+    private final LogIn logIn;
 
     public SuccessfulLogOut(WebDriver webDriver, LogIn logIn) {
         this.webDriver = webDriver;
@@ -26,6 +25,5 @@ public class SuccessfulLogOut implements Runnable {
 
         WebElement logOutButton = webDriver.findElement(By.id("log_out"));
         logOutButton.click();
-
     }
 }
