@@ -1,6 +1,7 @@
 package org.example.testCases;
 
 import org.example.WebDriverProvider;
+import org.example.testCases.SuccessfulLogin;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -9,7 +10,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-class ExampleTestTest {
+class SuccessfulLoginTest {
     private WebDriver webDriver;
 
     @BeforeEach
@@ -19,7 +20,7 @@ class ExampleTestTest {
 
     @Test
     public void test() {
-        ExampleTest exampleTest = new ExampleTest(webDriver);
+        SuccessfulLogin exampleTest = new SuccessfulLogin(webDriver);
 
         exampleTest.run();
         WebElement userOption = webDriver.findElement(By.id("user-options"));
