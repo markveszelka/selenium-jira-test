@@ -7,7 +7,6 @@ import org.openqa.selenium.WebElement;
 
 public class ExampleTest implements Runnable {
     private final WebDriver webDriver;
-
     private static final String URL = "https://jira-auto.codecool.metastage.net/login.jsp?os_destination=%2Fsecure%2FRapidBoard.jspa%3FrapidView%3D3%26projectKey%3DMTP";
 
     public static final String RESULT_URL = "https://jira-auto.codecool.metastage.net/secure/RapidBoard.jspa?rapidView=3&projectKey=MTP";
@@ -25,6 +24,7 @@ public class ExampleTest implements Runnable {
         WebElement userName = webDriver.findElement(By.id("login-form-username"));
         WebElement userPassword = webDriver.findElement(By.id("login-form-password"));
         WebElement button = webDriver.findElement(By.id("login-form-submit"));
+
 
         userName.sendKeys(USER_NAME);
         userPassword.sendKeys(USER_PASSWORD);

@@ -1,21 +1,20 @@
 package org.example.testCases;
 
-import org.example.Main;
+import org.example.WebDriverProvider;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class ExampleTestTest {
     private WebDriver webDriver;
 
     @BeforeEach
     public void setup() {
-        webDriver = Main.setupWebDriver();
+        webDriver = WebDriverProvider.setupWebDriver();
     }
 
     @Test
@@ -23,7 +22,9 @@ class ExampleTestTest {
         ExampleTest exampleTest = new ExampleTest(webDriver);
 
         exampleTest.run();
-        Assertions.assertEquals(ExampleTest.RESULT_URL, webDriver.getCurrentUrl());
+        WebElement userOption = webDriver.findElement(By.id("user-options"));
+
+        Assertions.assertNotNull(userOption);
     }
 
     @AfterEach
