@@ -12,8 +12,7 @@ import org.openqa.selenium.WebElement;
 import static org.junit.jupiter.api.Assertions.*;
 
 class LoginEmptyFieldsTest {
-
-    WebDriver webDriver;
+    private WebDriver webDriver;
 
     @BeforeEach
     public void setup(){
@@ -21,6 +20,7 @@ class LoginEmptyFieldsTest {
     }
 
     @Test
+    // TODO: rename test to more accurate
     public void test(){
         LoginEmptyFields loginEmptyFields = new LoginEmptyFields(webDriver);
         loginEmptyFields.run();
