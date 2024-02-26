@@ -22,6 +22,7 @@ class SuccessfulLoginTest {
     }
 
     @Test
+    // TODO: rename test to more accurate
     public void test() {
         SuccessfulLogin exampleTest = new SuccessfulLogin(logIn);
 

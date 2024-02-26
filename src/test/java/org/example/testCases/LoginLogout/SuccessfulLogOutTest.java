@@ -12,7 +12,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 class SuccessfulLogOutTest {
-
     private WebDriver webDriver;
     private LogIn logIn;
 
@@ -23,6 +22,7 @@ class SuccessfulLogOutTest {
     };
 
     @Test
+    // TODO: rename test to more accurate
     public void test(){
         SuccessfulLogOut successfulLogOut = new SuccessfulLogOut(webDriver, logIn);
         successfulLogOut.run();
