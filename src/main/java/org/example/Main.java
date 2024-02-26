@@ -1,7 +1,24 @@
 package org.example;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+
 public class Main {
+
+    public static final String BROWSER_VERSION = "121";
+
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        setupWebDriver();
+
+    }
+
+    public static WebDriver setupWebDriver() {
+        WebDriverManager.chromedriver().setup();
+        ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.setBrowserVersion(BROWSER_VERSION);
+
+        return new ChromeDriver(chromeOptions);
     }
 }
