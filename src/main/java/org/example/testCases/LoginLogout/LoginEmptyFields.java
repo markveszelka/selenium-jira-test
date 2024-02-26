@@ -16,7 +16,6 @@ public class LoginEmptyFields implements Runnable {
     @Override
     public void run() {
         webDriver.navigate().to(URL);
-        webDriver.navigate().to(URL);
 
         WebElement button = webDriver.findElement(By.id("login-form-submit"));
 
