@@ -9,8 +9,12 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-class LoginEmptyFieldsTest {
-    private WebDriver webDriver;
+import static org.junit.jupiter.api.Assertions.*;
+
+class LoginWithWrongPasswordTest {
+
+    WebDriver webDriver;
+
 
     @BeforeEach
     public void setup(){
@@ -18,10 +22,11 @@ class LoginEmptyFieldsTest {
     }
 
     @Test
-    // TODO: rename test to more accurate
     public void test(){
-        LoginEmptyFields loginEmptyFields = new LoginEmptyFields(webDriver);
-        loginEmptyFields.run();
+        LoginWithWrongPassword loginWithWrongPassword = new LoginWithWrongPassword(webDriver);
+
+        loginWithWrongPassword.run();
+
         WebElement errorMessage = webDriver.findElement(By.xpath("//*[@id='login-form']/div[1]/div[1]"));
 
         Assertions.assertTrue(errorMessage.isDisplayed());
@@ -31,5 +36,4 @@ class LoginEmptyFieldsTest {
     public void tearDown(){
         webDriver.quit();
     }
-
 }
