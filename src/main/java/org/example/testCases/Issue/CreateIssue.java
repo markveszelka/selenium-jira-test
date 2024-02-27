@@ -11,12 +11,11 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class CreateIssue implements Runnable {
-    private final WebDriver webDriver;
+public class CreateIssue extends Issue implements Runnable {
     private final Dotenv dotenv = Dotenv.load();
 
-    public CreateIssue(WebDriver webDriver) {
-        this.webDriver = webDriver;
+    public CreateIssue(WebDriver webDriver, LogIn logIn) {
+        super(webDriver, logIn);
     }
 
     @Override
