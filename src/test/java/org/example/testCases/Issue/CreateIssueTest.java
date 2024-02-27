@@ -18,18 +18,24 @@ class CreateIssueTest {
     void setUp() {
         webDriver = WebDriverProvider.setupWebDriver();
         logIn = new LogIn(webDriver);
+
+        logIn.logIn();
     }
 
     @AfterEach
     void tearDown() {
+        SearchIssue searchIssue = new SearchIssue(webDriver, logIn);
+        DeleteIssue deleteIssue = new DeleteIssue(webDriver, logIn);
+        searchIssue.run();
+        deleteIssue.run();
+
         webDriver.quit();
     }
 
     @Test
-    // TODO: rename test to more accurate
-    public void test() {
+    public void createIssueSuccessfully() {
         // Given
-        CreateIssue createIssue = new CreateIssue(logIn, webDriver);
+        CreateIssue createIssue = new CreateIssue(webDriver, logIn);
         // When
         createIssue.run();
         WebElement header = webDriver.findElement(By.id("header"));

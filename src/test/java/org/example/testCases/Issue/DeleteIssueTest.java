@@ -17,15 +17,19 @@ import java.time.Duration;
 class DeleteIssueTest {
     private WebDriver webDriver;
     private LogIn logIn;
-    private SearchIssue searchIssue;
-    private CreateIssue createIssue;
 
     @BeforeEach
     void setUp() {
         webDriver = WebDriverProvider.setupWebDriver();
         logIn = new LogIn(webDriver);
-        createIssue = new CreateIssue(logIn, webDriver);
-        searchIssue = new SearchIssue(webDriver, createIssue);
+
+        logIn.logIn();
+
+        CreateIssue createIssue = new CreateIssue(webDriver, logIn);
+        createIssue.run();
+
+        SearchIssue searchIssue = new SearchIssue(webDriver, logIn);
+        searchIssue.run();
     }
 
     @AfterEach
@@ -34,10 +38,9 @@ class DeleteIssueTest {
     }
 
     @Test
-    // TODO: rename test to more accurate
-    public void test() {
+    public void deleteIssueSuccessfully() {
         // Given
-        DeleteIssue deleteIssue = new DeleteIssue(webDriver, searchIssue);
+        DeleteIssue deleteIssue = new DeleteIssue(webDriver, logIn);
         // When
         deleteIssue.run();
         WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(5));
