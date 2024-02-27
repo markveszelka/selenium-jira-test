@@ -10,8 +10,6 @@ public class SuccessfulLogOut implements Runnable {
     WebDriver webDriver;
     LogIn logIn;
 
-    private final String URL = "https://jira-auto.codecool.metastage.net/secure/Dashboard.jspa";
-
     public SuccessfulLogOut(WebDriver webDriver, LogIn logIn) {
         this.webDriver = webDriver;
         this.logIn = logIn;
@@ -20,6 +18,7 @@ public class SuccessfulLogOut implements Runnable {
     @Override
     public void run() {
         logIn.logIn();
+        String URL = "https://jira-auto.codecool.metastage.net/secure/Dashboard.jspa";
         webDriver.navigate().to(URL);
         WebElement dropDown = webDriver.findElement(By.id("header-details-user-fullname"));
         dropDown.click();
