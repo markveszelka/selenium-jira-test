@@ -33,6 +33,7 @@ public class CreateIssue implements Runnable {
         summaryInputField.sendKeys("This is an automated created issue for testing purpose.");
 
         // IFRAME SWITCH:
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("mce_0_ifr")));
         WebElement iframe = webDriver.findElement(By.id("mce_0_ifr"));
         webDriver.switchTo().frame(iframe);
 
