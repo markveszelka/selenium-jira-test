@@ -22,6 +22,7 @@ public class EditIssue implements Runnable {
     }
 
     @Override
+    // TODO: The issues delete is missing here after creation.
     public void run() {
         searchIssue.run();
 
