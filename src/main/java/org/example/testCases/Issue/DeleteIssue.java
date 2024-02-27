@@ -11,18 +11,14 @@ import java.time.Duration;
 
 public class DeleteIssue implements Runnable {
     private final WebDriver webDriver;
-    private final SearchIssue searchIssue;
 
-    public DeleteIssue(WebDriver webDriver, SearchIssue searchIssue) {
+    public DeleteIssue(WebDriver webDriver) {
         this.webDriver = webDriver;
-        this.searchIssue = searchIssue;
     }
 
     @Override
     public void run() {
-        searchIssue.run();
-
-        WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(15));
+        WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(20));
         WebElement moreButton = wait.until(
                 ExpectedConditions.visibilityOfElementLocated(By.id("opsbar-operations_more")));
         moreButton.click();

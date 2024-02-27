@@ -12,21 +12,15 @@ import java.time.Duration;
 
 public class EditIssue implements Runnable {
     private final WebDriver webDriver;
-    private final SearchIssue searchIssue;
-    private final LogIn logIn;
 
-    public EditIssue(WebDriver webDriver, SearchIssue searchIssue, LogIn logIn) {
+    public EditIssue(WebDriver webDriver) {
         this.webDriver = webDriver;
-        this.searchIssue = searchIssue;
-        this.logIn = logIn;
     }
 
     @Override
     // TODO: The issues delete is missing here after creation.
     public void run() {
-        searchIssue.run();
-
-        WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(10));
+        WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(20));
         WebElement editButton = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("edit-issue")));
         editButton.click();
 

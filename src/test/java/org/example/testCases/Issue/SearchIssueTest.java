@@ -25,7 +25,7 @@ class SearchIssueTest {
     void setUp() {
         webDriver = WebDriverProvider.setupWebDriver();
         logIn = new LogIn(webDriver);
-        createIssue = new CreateIssue(logIn, webDriver);
+        createIssue = new CreateIssue(webDriver);
     }
 
     @AfterEach
@@ -36,7 +36,7 @@ class SearchIssueTest {
     @Test
     public void test() {
         // Given
-        SearchIssue searchIssue = new SearchIssue(webDriver, createIssue);
+        SearchIssue searchIssue = new SearchIssue(webDriver);
         // When
         searchIssue.run();
         WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(8));

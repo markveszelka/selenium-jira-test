@@ -12,23 +12,19 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class CreateIssue implements Runnable {
-    private final LogIn logIn;
     private final WebDriver webDriver;
     private final Dotenv dotenv = Dotenv.load();
 
-    public CreateIssue(LogIn logIn, WebDriver webDriver) {
-        this.logIn = logIn;
+    public CreateIssue(WebDriver webDriver) {
         this.webDriver = webDriver;
     }
 
     @Override
     public void run() {
-        logIn.logIn();
-
         WebElement createIssueButton = webDriver.findElement(By.id("create_link"));
         createIssueButton.click();
 
-        WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(3));
+        WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(20));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("create-issue-dialog")));
 
         WebElement summaryInputField = webDriver.findElement(By.id("summary"));

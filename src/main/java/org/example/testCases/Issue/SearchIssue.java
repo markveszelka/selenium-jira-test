@@ -13,18 +13,14 @@ import java.time.Duration;
 public class SearchIssue implements Runnable {
     private final WebDriver webDriver;
     private final Dotenv dotenv = Dotenv.load();
-    private final CreateIssue createIssue;
 
-    public SearchIssue(WebDriver webDriver, CreateIssue createIssue) {
+    public SearchIssue(WebDriver webDriver) {
         this.webDriver = webDriver;
-        this.createIssue = createIssue;
     }
 
     @Override
     public void run() {
-        createIssue.run();
-
-        WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(3));
+        WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(20));
 
         WebElement issuesButton = webDriver.findElement(By.id("find_link"));
         issuesButton.click();

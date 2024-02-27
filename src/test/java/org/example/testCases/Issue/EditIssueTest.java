@@ -24,8 +24,8 @@ class EditIssueTest {
     void setUp() {
         webDriver = WebDriverProvider.setupWebDriver();
         logIn = new LogIn(webDriver);
-        createIssue = new CreateIssue(logIn, webDriver);
-        searchIssue = new SearchIssue(webDriver, createIssue);
+        createIssue = new CreateIssue(webDriver);
+        searchIssue = new SearchIssue(webDriver);
     }
 
     @AfterEach
@@ -37,7 +37,7 @@ class EditIssueTest {
     // TODO: rename test to more accurate
     public void test() {
         // Given
-        EditIssue editIssue = new EditIssue(webDriver, searchIssue, logIn);
+        EditIssue editIssue = new EditIssue(webDriver);
         // When
         editIssue.run();
         WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(5));

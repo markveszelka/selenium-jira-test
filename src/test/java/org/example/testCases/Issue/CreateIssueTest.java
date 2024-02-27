@@ -29,7 +29,7 @@ class CreateIssueTest {
     // TODO: rename test to more accurate
     public void test() {
         // Given
-        CreateIssue createIssue = new CreateIssue(logIn, webDriver);
+        CreateIssue createIssue = new CreateIssue(webDriver);
         // When
         createIssue.run();
         WebElement header = webDriver.findElement(By.id("header"));
