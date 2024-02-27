@@ -25,10 +25,10 @@ class CreateIssueTest {
     @Test
     // TODO: rename test to more accurate
     public void test() {
+        // TODO: FINISH TEST CASE!
         // Given
         CreateIssue createIssue = new CreateIssue(logIn, webDriver);
         createIssue.run();
-
         // When
 
         // Then
