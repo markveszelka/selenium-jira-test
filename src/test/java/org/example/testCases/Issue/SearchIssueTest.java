@@ -19,24 +19,30 @@ class SearchIssueTest {
     private final Dotenv dotenv = Dotenv.load();
     private WebDriver webDriver;
     private LogIn logIn;
-    private CreateIssue createIssue;
 
     @BeforeEach
     void setUp() {
         webDriver = WebDriverProvider.setupWebDriver();
         logIn = new LogIn(webDriver);
-        createIssue = new CreateIssue(logIn, webDriver);
+
+        logIn.logIn();
+
+        CreateIssue createIssue = new CreateIssue(webDriver, logIn);
+        createIssue.run();
     }
 
     @AfterEach
     void tearDown() {
+        DeleteIssue deleteIssue = new DeleteIssue(webDriver, logIn);
+        deleteIssue.run();
+
         webDriver.quit();
     }
 
     @Test
     public void test() {
         // Given
-        SearchIssue searchIssue = new SearchIssue(webDriver, createIssue);
+        SearchIssue searchIssue = new SearchIssue(webDriver, logIn);
         // When
         searchIssue.run();
         WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(8));

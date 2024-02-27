@@ -18,30 +18,39 @@ class EditIssueTest {
     private WebDriver webDriver;
     private LogIn logIn;
     private SearchIssue searchIssue;
-    private CreateIssue createIssue;
 
     @BeforeEach
     void setUp() {
         webDriver = WebDriverProvider.setupWebDriver();
         logIn = new LogIn(webDriver);
-        createIssue = new CreateIssue(logIn, webDriver);
-        searchIssue = new SearchIssue(webDriver, createIssue);
+
+        logIn.logIn();
+
+        CreateIssue createIssue = new CreateIssue(webDriver, logIn);
+        createIssue.run();
+        searchIssue = new SearchIssue(webDriver, logIn);
+        searchIssue.run();
     }
 
     @AfterEach
     void tearDown() {
+        DeleteIssue deleteIssue = new DeleteIssue(webDriver, logIn);
+        searchIssue.run();
+        deleteIssue.run();
+
         webDriver.quit();
     }
 
     @Test
-    // TODO: rename test to more accurate
-    public void test() {
+    public void editIssueSuccessfully() {
         // Given
-        EditIssue editIssue = new EditIssue(webDriver, searchIssue, logIn);
+        EditIssue editIssue = new EditIssue(webDriver, logIn);
         // When
         editIssue.run();
-        WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(5));
-        WebElement popUpWindow = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".aui-message.closeable.aui-message-success.aui-will-close")));
+        WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(10));
+        WebElement popUpWindow = wait.until(
+                ExpectedConditions.visibilityOfElementLocated(
+                        By.cssSelector(".aui-message.closeable.aui-message-success.aui-will-close")));
         // Then
         Assertions.assertNotNull(popUpWindow);
     }

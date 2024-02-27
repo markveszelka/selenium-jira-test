@@ -1,6 +1,7 @@
 package org.example.testCases.Issue;
 
 import io.github.cdimascio.dotenv.Dotenv;
+import org.example.LogIn;
 import org.example.testCases.Runnable;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -10,21 +11,16 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class SearchIssue implements Runnable {
-    private final WebDriver webDriver;
+public class SearchIssue extends Issue implements Runnable {
     private final Dotenv dotenv = Dotenv.load();
-    private final CreateIssue createIssue;
 
-    public SearchIssue(WebDriver webDriver, CreateIssue createIssue) {
-        this.webDriver = webDriver;
-        this.createIssue = createIssue;
+    public SearchIssue(WebDriver webDriver, LogIn logIn) {
+        super(webDriver, logIn);
     }
 
     @Override
     public void run() {
-        createIssue.run();
-
-        WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(3));
+        WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(20));
 
         WebElement issuesButton = webDriver.findElement(By.id("find_link"));
         issuesButton.click();
@@ -33,11 +29,14 @@ public class SearchIssue implements Runnable {
                 ExpectedConditions.visibilityOfElementLocated(By.id("issues_new_search_link_lnk")));
         searchForIssues.click();
 
-        WebElement searchInputField = webDriver.findElement(By.id("searcher-query"));
+        WebElement searchInputField = wait.until(
+                ExpectedConditions.elementToBeClickable(By.id("searcher-query")));
         searchInputField.sendKeys(dotenv.get("JIRA_USERNAME"));
+        // Pop-up message sometimes might be in the way:
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("div.aui-message")));
 
-        WebElement searchButton = webDriver.findElement(
-                By.cssSelector("button[type='button'][original-title='Search for issues']"));
+        WebElement searchButton = wait.until(ExpectedConditions.elementToBeClickable(
+                By.cssSelector("button[type='button'][original-title='Search for issues']")));
         searchButton.click();
     }
 }
