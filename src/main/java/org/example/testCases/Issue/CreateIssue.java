@@ -1,5 +1,6 @@
 package org.example.testCases.Issue;
 
+import io.github.cdimascio.dotenv.Dotenv;
 import org.example.LogIn;
 import org.example.testCases.Runnable;
 import org.openqa.selenium.By;
@@ -13,6 +14,7 @@ import java.time.Duration;
 public class CreateIssue implements Runnable {
     private final LogIn logIn;
     private final WebDriver webDriver;
+    private final Dotenv dotenv = Dotenv.load();
 
     public CreateIssue(LogIn logIn, WebDriver webDriver) {
         this.logIn = logIn;
@@ -30,11 +32,12 @@ public class CreateIssue implements Runnable {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("create-issue-dialog")));
 
         WebElement summaryInputField = webDriver.findElement(By.id("summary"));
-        summaryInputField.sendKeys("This is an automated created issue for testing purpose.");
+        summaryInputField.sendKeys(
+                String.format("This is an automated created issue for testing purpose. Created by %s.",
+                        dotenv.get("JIRA_USERNAME")));
 
         // IFRAME SWITCH:
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("mce_0_ifr")));
-        WebElement iframe = webDriver.findElement(By.id("mce_0_ifr"));
+        WebElement iframe = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("mce_0_ifr")));
         webDriver.switchTo().frame(iframe);
 
         WebElement descriptionInputField = webDriver.findElement(By.id("tinymce"));
