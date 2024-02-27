@@ -11,8 +11,6 @@ import org.openqa.selenium.WebElement;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class BrowseAllAdminProjectTest {
 
     WebDriver webDriver;
