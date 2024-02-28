@@ -12,8 +12,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class DeleteIssue extends Issue implements Runnable {
-    public DeleteIssue(WebDriver webDriver, LogIn logIn) {
-        super(webDriver, logIn);
+    public DeleteIssue(WebDriver webDriver) {
+        super(webDriver);
     }
 
     @Override

@@ -11,8 +11,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class EditIssue extends Issue implements Runnable {
-    public EditIssue(WebDriver webDriver, LogIn logIn) {
-        super(webDriver, logIn);
+    public EditIssue(WebDriver webDriver) {
+        super(webDriver);
     }
 
     @Override

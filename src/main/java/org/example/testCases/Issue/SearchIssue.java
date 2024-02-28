@@ -14,8 +14,8 @@ import java.time.Duration;
 public class SearchIssue extends Issue implements Runnable {
     private final Dotenv dotenv = Dotenv.load();
 
-    public SearchIssue(WebDriver webDriver, LogIn logIn) {
-        super(webDriver, logIn);
+    public SearchIssue(WebDriver webDriver) {
+        super(webDriver);
     }
 
     @Override

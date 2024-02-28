@@ -5,10 +5,8 @@ import org.openqa.selenium.WebDriver;
 
 public abstract class Issue {
     protected final WebDriver webDriver;
-    protected final LogIn logIn;
 
-    protected Issue(WebDriver webDriver, LogIn logIn) {
+    protected Issue(WebDriver webDriver) {
         this.webDriver = webDriver;
-        this.logIn = logIn;
     }
 }
