@@ -12,18 +12,18 @@ import org.openqa.selenium.WebElement;
 
 class SuccessfulLogOutTest {
     private WebDriver webDriver;
-    private LogIn logIn;
 
     @BeforeEach
     public void setup(){
         webDriver = WebDriverProvider.setupWebDriver();
-        logIn = new LogIn(webDriver);
+        LogIn logIn = new LogIn(webDriver);
+        logIn.logIn();
     }
 
     @Test
     // TODO: rename test to more accurate
     public void test(){
-        SuccessfulLogOut successfulLogOut = new SuccessfulLogOut(webDriver, logIn);
+        SuccessfulLogOut successfulLogOut = new SuccessfulLogOut(webDriver);
         successfulLogOut.run();
 
         WebElement userOptions = webDriver.findElement(By.id("user-options"));

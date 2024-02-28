@@ -9,16 +9,13 @@ import org.openqa.selenium.WebElement;
 public class SuccessfulLogOut implements Runnable {
     private static final String URL = "https://jira-auto.codecool.metastage.net/secure/Dashboard.jspa";
     private final WebDriver webDriver;
-    private final LogIn logIn;
 
-    public SuccessfulLogOut(WebDriver webDriver, LogIn logIn) {
+    public SuccessfulLogOut(WebDriver webDriver) {
         this.webDriver = webDriver;
-        this.logIn = logIn;
     }
 
     @Override
     public void run() {
-        logIn.logIn();
         webDriver.navigate().to(URL);
         WebElement dropDown = webDriver.findElement(By.id("header-details-user-fullname"));
         dropDown.click();

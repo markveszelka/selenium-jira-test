@@ -27,13 +27,13 @@ class SearchIssueTest {
 
         logIn.logIn();
 
-        CreateIssue createIssue = new CreateIssue(webDriver, logIn);
+        CreateIssue createIssue = new CreateIssue(webDriver);
         createIssue.run();
     }
 
     @AfterEach
     void tearDown() {
-        DeleteIssue deleteIssue = new DeleteIssue(webDriver, logIn);
+        DeleteIssue deleteIssue = new DeleteIssue(webDriver);
         deleteIssue.run();
 
         webDriver.quit();
@@ -42,7 +42,7 @@ class SearchIssueTest {
     @Test
     public void test() {
         // Given
-        SearchIssue searchIssue = new SearchIssue(webDriver, logIn);
+        SearchIssue searchIssue = new SearchIssue(webDriver);
         // When
         searchIssue.run();
         WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(8));
