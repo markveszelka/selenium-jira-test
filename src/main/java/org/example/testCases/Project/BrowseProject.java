@@ -12,16 +12,13 @@ import java.time.Duration;
 
 public class BrowseProject implements Runnable {
     private final WebDriver webDriver;
-    private final LogIn logIn;
 
     public BrowseProject(WebDriver webDriver) {
         this.webDriver = webDriver;
-        this.logIn = new LogIn(webDriver);
     }
 
     @Override
     public void run() {
-        logIn.logIn();
 
         WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(1));
 

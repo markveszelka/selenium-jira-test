@@ -1,5 +1,6 @@
 package org.example.testCases.Project;
 
+import org.example.LogIn;
 import org.example.WebDriverProvider;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
@@ -11,11 +12,13 @@ import org.openqa.selenium.WebElement;
 
 
 class BrowseProjectTest {
-    WebDriver webDriver;
+    private WebDriver webDriver;
 
     @BeforeEach
     public void setup() {
         webDriver = WebDriverProvider.setupWebDriver();
+        LogIn logIn = new LogIn(webDriver);
+        logIn.logIn();
     }
 
     @Test

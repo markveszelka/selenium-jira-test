@@ -10,17 +10,14 @@ import java.time.Duration;
 
 public class BrowseCoalaProject implements Runnable {
 
-   private final WebDriver webDriver;
-   private final BrowseProject browseProject;
-//TODO Dependency injection? fontos hogy a browse project ugyan azt a webdrivert kapja?
+    private final WebDriver webDriver;
+
     public BrowseCoalaProject(WebDriver webDriver) {
         this.webDriver = webDriver;
-        browseProject = new BrowseProject(webDriver);
     }
 
     @Override
     public void run() {
-        browseProject.run();
 
         WebElement searchBar = webDriver.findElement(By.xpath("//*[@id='project-filter-text']"));
         searchBar.sendKeys("COALA");
