@@ -1,6 +1,4 @@
 package org.example.testCases.Project;
-
-import org.example.LogIn;
 import org.example.testCases.Runnable;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

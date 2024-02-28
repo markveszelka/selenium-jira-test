@@ -1,6 +1,5 @@
 package org.example.testCases.LoginLogout;
 
-import org.example.LogIn;
 import org.example.testCases.Runnable;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
