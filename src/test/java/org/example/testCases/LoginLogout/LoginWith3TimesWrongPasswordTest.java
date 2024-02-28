@@ -10,16 +10,16 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 class LoginWith3TimesWrongPasswordTest {
-    WebDriver webDriver;
+    private WebDriver webDriver;
 
 
     @BeforeEach
-    public void setup(){
+    public void setup() {
         webDriver = WebDriverProvider.setupWebDriver();
     }
 
     @Test
-    public void test(){
+    public void test() {
         LoginWith3TimesWrongPassword loginWith3TimesWrongPassword = new LoginWith3TimesWrongPassword(webDriver);
 
         loginWith3TimesWrongPassword.run();
@@ -30,7 +30,7 @@ class LoginWith3TimesWrongPasswordTest {
     }
 
     @AfterEach
-    public void tearDown(){
+    public void tearDown() {
         try {
             Thread.sleep(3000);
         } catch (InterruptedException e) {
@@ -38,6 +38,7 @@ class LoginWith3TimesWrongPasswordTest {
             Thread.currentThread().interrupt();
         } finally {
             webDriver.quit();
-        }    }
+        }
+    }
 
 }

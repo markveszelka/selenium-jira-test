@@ -9,14 +9,13 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class LoginWith3TimesWrongPassword implements Runnable {
+public class LoginWith3TimesWrongPassword extends LogIn implements Runnable {
     public static final String USER_NAME = "automation74";
     public static final String USER_PASSWORD = "wrongPassword";
     private static final String URL = "https://jira-auto.codecool.metastage.net/login.jsp?os_destination=%2Fsecure%2FRapidBoard.jspa%3FrapidView%3D3%26projectKey%3DMTP";
-    private final WebDriver webDriver;
 
     public LoginWith3TimesWrongPassword(WebDriver webDriver) {
-        this.webDriver = webDriver;
+        super(webDriver);
     }
 
 

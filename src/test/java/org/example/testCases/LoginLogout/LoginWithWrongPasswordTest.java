@@ -11,16 +11,16 @@ import org.openqa.selenium.WebElement;
 
 class LoginWithWrongPasswordTest {
 
-    WebDriver webDriver;
+    private WebDriver webDriver;
 
 
     @BeforeEach
-    public void setup(){
+    public void setup() {
         webDriver = WebDriverProvider.setupWebDriver();
     }
 
     @Test
-    public void test(){
+    public void test() {
         LoginWithWrongPassword loginWithWrongPassword = new LoginWithWrongPassword(webDriver);
 
         loginWithWrongPassword.run();
@@ -31,7 +31,7 @@ class LoginWithWrongPasswordTest {
     }
 
     @AfterEach
-    public void tearDown(){
+    public void tearDown() {
         webDriver.quit();
     }
 }
