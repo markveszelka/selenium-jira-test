@@ -5,13 +5,13 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class SuccessfulLogOut implements Runnable {
+public class SuccessfulLogOut extends LogIn implements Runnable {
     private static final String URL = "https://jira-auto.codecool.metastage.net/secure/Dashboard.jspa";
-    private final WebDriver webDriver;
 
     public SuccessfulLogOut(WebDriver webDriver) {
-        this.webDriver = webDriver;
+        super(webDriver);
     }
+
 
     @Override
     public void run() {
