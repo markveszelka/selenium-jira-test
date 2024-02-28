@@ -1,7 +1,6 @@
 package org.example.testCases.Issue;
 
 import io.github.cdimascio.dotenv.Dotenv;
-import org.example.testCases.LoginLogout.LogIn;
 import org.example.WebDriverProvider;
 import org.example.testCases.LoginLogout.SuccessfulLogin;
 import org.junit.jupiter.api.AfterEach;

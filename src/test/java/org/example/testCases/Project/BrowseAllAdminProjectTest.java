@@ -1,6 +1,5 @@
 package org.example.testCases.Project;
 
-import org.example.testCases.LoginLogout.LogIn;
 import org.example.WebDriverProvider;
 import org.example.testCases.LoginLogout.SuccessfulLogin;
 import org.junit.jupiter.api.AfterEach;
@@ -15,7 +14,7 @@ import java.util.List;
 
 class BrowseAllAdminProjectTest {
 
-    WebDriver webDriver;
+    private WebDriver webDriver;
 
     @BeforeEach
     public void setup() {
@@ -35,7 +34,7 @@ class BrowseAllAdminProjectTest {
         WebElement tableBody = webDriver.findElement(By.className("projects-list"));
         List<WebElement> rows = tableBody.findElements(By.tagName("tr"));
 
-        Assertions.assertEquals(sizeOfAdmin, rows.size() - 1 );
+        Assertions.assertEquals(sizeOfAdmin, rows.size() - 1);
 
     }
 

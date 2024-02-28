@@ -1,6 +1,5 @@
 package org.example.testCases.Project;
 
-import org.example.testCases.LoginLogout.LogIn;
 import org.example.WebDriverProvider;
 import org.example.testCases.LoginLogout.SuccessfulLogin;
 import org.junit.jupiter.api.AfterEach;
@@ -12,7 +11,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 class OrderProjectsByNameDescOrderTest {
-    WebDriver webDriver;
+    private WebDriver webDriver;
 
     @BeforeEach
     public void setup() {
