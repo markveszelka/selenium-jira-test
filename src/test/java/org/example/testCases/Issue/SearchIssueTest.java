@@ -18,12 +18,11 @@ import java.time.Duration;
 class SearchIssueTest {
     private final Dotenv dotenv = Dotenv.load();
     private WebDriver webDriver;
-    private LogIn logIn;
 
     @BeforeEach
     void setUp() {
         webDriver = WebDriverProvider.setupWebDriver();
-        logIn = new LogIn(webDriver);
+        LogIn logIn = new LogIn(webDriver);
 
         logIn.logIn();
 

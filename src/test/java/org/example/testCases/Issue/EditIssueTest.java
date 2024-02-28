@@ -16,13 +16,12 @@ import java.time.Duration;
 
 class EditIssueTest {
     private WebDriver webDriver;
-    private LogIn logIn;
     private SearchIssue searchIssue;
 
     @BeforeEach
     void setUp() {
         webDriver = WebDriverProvider.setupWebDriver();
-        logIn = new LogIn(webDriver);
+        LogIn logIn = new LogIn(webDriver);
 
         logIn.logIn();
 
