@@ -14,8 +14,8 @@ import java.time.Duration;
 public class CreateIssue extends Issue implements Runnable {
     private final Dotenv dotenv = Dotenv.load();
 
-    public CreateIssue(WebDriver webDriver, LogIn logIn) {
-        super(webDriver, logIn);
+    public CreateIssue(WebDriver webDriver) {
+        super(webDriver);
     }
 
     @Override
