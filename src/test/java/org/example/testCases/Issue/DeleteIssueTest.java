@@ -25,10 +25,10 @@ class DeleteIssueTest {
 
         logIn.logIn();
 
-        CreateIssue createIssue = new CreateIssue(webDriver, logIn);
+        CreateIssue createIssue = new CreateIssue(webDriver);
         createIssue.run();
 
-        SearchIssue searchIssue = new SearchIssue(webDriver, logIn);
+        SearchIssue searchIssue = new SearchIssue(webDriver);
         searchIssue.run();
     }
 
@@ -40,7 +40,7 @@ class DeleteIssueTest {
     @Test
     public void deleteIssueSuccessfully() {
         // Given
-        DeleteIssue deleteIssue = new DeleteIssue(webDriver, logIn);
+        DeleteIssue deleteIssue = new DeleteIssue(webDriver);
         // When
         deleteIssue.run();
         WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(5));

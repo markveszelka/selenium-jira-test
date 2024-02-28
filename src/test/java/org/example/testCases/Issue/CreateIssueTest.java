@@ -12,20 +12,19 @@ import org.openqa.selenium.WebElement;
 
 class CreateIssueTest {
     private WebDriver webDriver;
-    private LogIn logIn;
 
     @BeforeEach
     void setUp() {
         webDriver = WebDriverProvider.setupWebDriver();
-        logIn = new LogIn(webDriver);
+        LogIn logIn = new LogIn(webDriver);
 
         logIn.logIn();
     }
 
     @AfterEach
     void tearDown() {
-        SearchIssue searchIssue = new SearchIssue(webDriver, logIn);
-        DeleteIssue deleteIssue = new DeleteIssue(webDriver, logIn);
+        SearchIssue searchIssue = new SearchIssue(webDriver);
+        DeleteIssue deleteIssue = new DeleteIssue(webDriver);
         searchIssue.run();
         deleteIssue.run();
 
@@ -35,7 +34,7 @@ class CreateIssueTest {
     @Test
     public void createIssueSuccessfully() {
         // Given
-        CreateIssue createIssue = new CreateIssue(webDriver, logIn);
+        CreateIssue createIssue = new CreateIssue(webDriver);
         // When
         createIssue.run();
         WebElement header = webDriver.findElement(By.id("header"));

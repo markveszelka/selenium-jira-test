@@ -26,15 +26,15 @@ class EditIssueTest {
 
         logIn.logIn();
 
-        CreateIssue createIssue = new CreateIssue(webDriver, logIn);
+        CreateIssue createIssue = new CreateIssue(webDriver);
         createIssue.run();
-        searchIssue = new SearchIssue(webDriver, logIn);
+        searchIssue = new SearchIssue(webDriver);
         searchIssue.run();
     }
 
     @AfterEach
     void tearDown() {
-        DeleteIssue deleteIssue = new DeleteIssue(webDriver, logIn);
+        DeleteIssue deleteIssue = new DeleteIssue(webDriver);
         searchIssue.run();
         deleteIssue.run();
 
@@ -44,7 +44,7 @@ class EditIssueTest {
     @Test
     public void editIssueSuccessfully() {
         // Given
-        EditIssue editIssue = new EditIssue(webDriver, logIn);
+        EditIssue editIssue = new EditIssue(webDriver);
         // When
         editIssue.run();
         WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(10));
