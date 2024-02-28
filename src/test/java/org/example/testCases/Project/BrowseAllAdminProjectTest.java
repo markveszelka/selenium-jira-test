@@ -9,8 +9,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import java.util.List;
 
-class BrowseProjectTest {
+class BrowseAllAdminProjectTest {
+
     WebDriver webDriver;
 
     @BeforeEach
@@ -20,12 +22,15 @@ class BrowseProjectTest {
 
     @Test
     public void test() {
-        BrowseProject browseProject = new BrowseProject(webDriver);
-        browseProject.run();
+        BrowseAllAdminProject browseAllAdminProject = new BrowseAllAdminProject(webDriver);
+        browseAllAdminProject.run();
 
-        WebElement projectFilterField = webDriver.findElement(By.id("project-filter-text"));
+        int sizeOfAdmin = webDriver.findElements(By.xpath("//*[text()='Admin']")).size();
+        WebElement tableBody = webDriver.findElement(By.className("projects-list"));
+        List<WebElement> rows = tableBody.findElements(By.tagName("tr"));
 
-        Assertions.assertNotNull(projectFilterField);
+        Assertions.assertEquals(sizeOfAdmin, rows.size() - 1 );
+
     }
 
     @AfterEach
