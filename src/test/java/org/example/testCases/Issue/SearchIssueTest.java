@@ -1,8 +1,8 @@
 package org.example.testCases.Issue;
 
 import io.github.cdimascio.dotenv.Dotenv;
-import org.example.LogIn;
 import org.example.WebDriverProvider;
+import org.example.testCases.LoginLogout.SuccessfulLogin;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -22,9 +22,9 @@ class SearchIssueTest {
     @BeforeEach
     void setUp() {
         webDriver = WebDriverProvider.setupWebDriver();
-        LogIn logIn = new LogIn(webDriver);
+        SuccessfulLogin logIn = new SuccessfulLogin(webDriver);
 
-        logIn.logIn();
+        logIn.run();
 
         CreateIssue createIssue = new CreateIssue(webDriver);
         createIssue.run();

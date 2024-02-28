@@ -13,13 +13,13 @@ class LoginEmptyFieldsTest {
     private WebDriver webDriver;
 
     @BeforeEach
-    public void setup(){
+    public void setup() {
         webDriver = WebDriverProvider.setupWebDriver();
     }
 
     @Test
     // TODO: rename test to more accurate
-    public void test(){
+    public void test() {
         LoginEmptyFields loginEmptyFields = new LoginEmptyFields(webDriver);
         loginEmptyFields.run();
         WebElement errorMessage = webDriver.findElement(By.xpath("//*[@id='login-form']/div[1]/div[1]"));
@@ -28,7 +28,7 @@ class LoginEmptyFieldsTest {
     }
 
     @AfterEach
-    public void tearDown(){
+    public void tearDown() {
         webDriver.quit();
     }
 

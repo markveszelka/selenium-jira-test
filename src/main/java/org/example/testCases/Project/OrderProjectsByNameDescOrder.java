@@ -5,11 +5,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class OrderProjectsByNameDescOrder implements Runnable {
-   private final WebDriver webDriver;
+public class OrderProjectsByNameDescOrder extends Project implements Runnable {
 
     public OrderProjectsByNameDescOrder(WebDriver webDriver) {
-        this.webDriver = webDriver;
+        super(webDriver);
     }
 
     @Override

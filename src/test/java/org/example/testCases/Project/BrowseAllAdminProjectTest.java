@@ -1,7 +1,7 @@
 package org.example.testCases.Project;
 
-import org.example.LogIn;
 import org.example.WebDriverProvider;
+import org.example.testCases.LoginLogout.SuccessfulLogin;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -14,14 +14,14 @@ import java.util.List;
 
 class BrowseAllAdminProjectTest {
 
-    WebDriver webDriver;
+    private WebDriver webDriver;
 
     @BeforeEach
     public void setup() {
         webDriver = WebDriverProvider.setupWebDriver();
-        LogIn logIn = new LogIn(webDriver);
+        SuccessfulLogin logIn = new SuccessfulLogin(webDriver);
         BrowseProject browseProject = new BrowseProject(webDriver);
-        logIn.logIn();
+        logIn.run();
         browseProject.run();
     }
 
@@ -34,7 +34,7 @@ class BrowseAllAdminProjectTest {
         WebElement tableBody = webDriver.findElement(By.className("projects-list"));
         List<WebElement> rows = tableBody.findElements(By.tagName("tr"));
 
-        Assertions.assertEquals(sizeOfAdmin, rows.size() - 1 );
+        Assertions.assertEquals(sizeOfAdmin, rows.size() - 1);
 
     }
 

@@ -1,11 +1,12 @@
-package org.example.testCases.Issue;
-
+package org.example.testCases.LoginLogout;
 import org.openqa.selenium.WebDriver;
 
-public abstract class Issue {
+public abstract class LogIn {
     protected final WebDriver webDriver;
 
-    public Issue(WebDriver webDriver) {
+    public LogIn(WebDriver webDriver) {
         this.webDriver = webDriver;
     }
+
+
 }

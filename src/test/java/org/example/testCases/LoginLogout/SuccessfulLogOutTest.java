@@ -1,6 +1,5 @@
 package org.example.testCases.LoginLogout;
 
-import org.example.LogIn;
 import org.example.WebDriverProvider;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
@@ -16,8 +15,8 @@ class SuccessfulLogOutTest {
     @BeforeEach
     public void setup(){
         webDriver = WebDriverProvider.setupWebDriver();
-        LogIn logIn = new LogIn(webDriver);
-        logIn.logIn();
+        SuccessfulLogin logIn = new SuccessfulLogin(webDriver);
+        logIn.run();
     }
 
     @Test
