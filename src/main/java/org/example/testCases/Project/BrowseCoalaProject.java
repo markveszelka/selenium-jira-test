@@ -8,12 +8,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class BrowseCoalaProject implements Runnable {
-
-    private final WebDriver webDriver;
+public class BrowseCoalaProject extends Project implements Runnable {
 
     public BrowseCoalaProject(WebDriver webDriver) {
-        this.webDriver = webDriver;
+        super(webDriver);
     }
 
     @Override

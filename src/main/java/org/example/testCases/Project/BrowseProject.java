@@ -1,4 +1,5 @@
 package org.example.testCases.Project;
+
 import org.example.testCases.Runnable;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -8,11 +9,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class BrowseProject implements Runnable {
-    private final WebDriver webDriver;
+public class BrowseProject extends Project implements Runnable {
 
     public BrowseProject(WebDriver webDriver) {
-        this.webDriver = webDriver;
+        super(webDriver);
     }
 
     @Override

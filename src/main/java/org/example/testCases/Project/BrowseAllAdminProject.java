@@ -4,10 +4,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class BrowseAllAdminProject implements Runnable{
-    private final WebDriver webDriver;
+public class BrowseAllAdminProject extends Project implements Runnable {
+
     public BrowseAllAdminProject(WebDriver webDriver) {
-        this.webDriver = webDriver;
+        super(webDriver);
     }
 
     @Override
